@@ -8,7 +8,7 @@ sed -i 's,-SNAPSHOT,,g' include/version.mk
 sed -i 's,-SNAPSHOT,,g' package/base-files/image-config.in
 
 ## 修改openwrt登陆地址,把下面的192.168.11.1修改成你想要的就可以了
-sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # rm -rf package/new
 mkdir -p package/new
@@ -107,6 +107,9 @@ rm -rf package/new/luci-app-adguardhome/root/usr/share/AdGuardHome/links.txt
 cp -rf $GITHUB_WORKSPACE/patches/AdGuardHome/links.txt package/new/luci-app-adguardhome/root/usr/share/AdGuardHome/links.txt
 # rm -rf package/new/luci-app-adguardhome/Makefile
 # cp -rf $GITHUB_WORKSPACE/patches/AdGuardHome/Makefile package/new/luci-app-adguardhome/Makefile
+
+## Add luci-app-wireguard
+mv package/new/openwrt-packages/luci-app-wireguard package/new/luci-app-wireguard
 
 ## Add luci-app-smartdns
 # rm -rf feeds/packages/net/smartdns

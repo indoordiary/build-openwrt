@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: rax3000m-immo
+name: rax3000m-emmc_immo
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -21,8 +21,8 @@ env:
   REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
   REPO_BRANCH: openwrt-21.02
   #FEEDS_CONF: immo/feeds.conf.default
-  CONFIG_FILE: immo/rax3000m.config
-  DIY_SH: immo/diy-rax3000m.sh
+  CONFIG_FILE: immo/rax3000m-emmc.config
+  DIY_SH: immo/diy-rax3000m-emmc.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -55,7 +55,7 @@ jobs:
 
     - name: Telegram notification
       run: |
-        curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=🎉 主人：您正在使用 build-openwrt 编译的 rax3000m_immo 固件,请耐心等待...... 😋" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+        curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=🎉 主人：您正在使用 build-openwrt 编译的 rax3000m-emmc_immo 固件,请耐心等待...... 😋" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
 
     - name: Initialization environment
       env:
@@ -140,11 +140,11 @@ jobs:
         rm -rf sha256sums
         rm -rf profiles.json
         rm -rf version.buildinfo
-        rm -rf immortalwrt-mediatek-mt7981-cmcc_rax3000m.manifest
-        rm -rf immortalwrt-mediatek-mt7981-cmcc_rax3000m-initramfs-kernel.bin
-        rm -rf immortalwrt-mediatek-mt7981-cmcc_rax3000m-squashfs-factory.bin
-        mv config.buildinfo rax3000m.buildinfo
-        mv immortalwrt-mediatek-mt7981-cmcc_rax3000m-squashfs-sysupgrade.bin immortalwrt-2102-cmcc_rax3000m-emmc-squashfs-sysupgrade.bin
+        rm -rf immortalwrt-mediatek-mt7981-cmcc_rax3000m-emmc.manifest
+        rm -rf immortalwrt-mediatek-mt7981-cmcc_rax3000m-emmc-initramfs-kernel.bin
+        rm -rf immortalwrt-mediatek-mt7981-cmcc_rax3000m-emmc-squashfs-factory.bin
+        mv config.buildinfo rax3000m-emmc.buildinfo
+        mv immortalwrt-mediatek-mt7981-cmcc_rax3000m-emmc-squashfs-sysupgrade.bin immortalwrt-2102-cmcc_rax3000m-emmc-squashfs-sysupgrade.bin
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
@@ -155,7 +155,7 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d")-immo" >> $GITHUB_OUTPUT
         echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "后台地址：192.168.11.1
+        echo "后台地址：10.0.0.1
               默认密码：password" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
@@ -180,7 +180,7 @@ jobs:
     - name: Telegram notification
       if: steps.compile.outputs.status == 'success'
       run: |
-        curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=亲爱的✨主人✨：您使用 build-openwrt 编译的 rax3000m_immo 固件顺利编译完成了！💐" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+        curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=亲爱的✨主人✨：您使用 build-openwrt 编译的 rax3000m-emmc_immo 固件顺利编译完成了！💐" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
