@@ -159,6 +159,9 @@ mv -n package/new/openwrt-passwall/luci-app-passwall package/new/
 rm -rf package/new/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/new/passwall
 
+## Add luci-app-ramfree
+mv package/new/openwrt-packages/luci-app-ramfree package/new/luci-app-ramfree
+
 ## openclash
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth 1 https://github.com/vernesong/OpenClash package/new/OpenClash
