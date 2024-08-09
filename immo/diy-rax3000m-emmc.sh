@@ -41,21 +41,6 @@ git clone --depth 1 https://github.com/chenmozhijin/luci-app-socat package/new/c
 mv -n package/new/chenmozhijin-socat/luci-app-socat package/new/
 rm -rf package/new/chenmozhijin-socat
 
-## docker-compose
-rm -rf feeds/luci/applications/luci-app-dockerman
-git clone https://github.com/immortalwrt/luci package/new/luci
-mv package/new/luci/applications/luci-app-dockerman package/new/
-rm -rf package/new/luci
-
-rm -rf feeds/packages/utils/docker
-rm -rf feeds/packages/utils/dockerd
-rm -rf feeds/packages/utils/docker-compose
-git clone https://github.com/immortalwrt/packages package/new/immortalwrt-packages
-mv package/new/immortalwrt-packages/utils/docker package/new/docker
-mv package/new/immortalwrt-packages/utils/dockerd package/new/dockerd
-mv package/new/immortalwrt-packages/utils/docker-compose package/new/docker-compose
-rm -rf package/new/immortalwrt-packages
-
 ## Add luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/packages/net/ddns-go
@@ -73,6 +58,11 @@ rm -rf package/new/ddnsgo
 git clone https://github.com/kiddin9/openwrt-packages package/new/openwrt-packages
 
 ########## 添加包
+
+rm -rf feeds/packages/utils/docker-compose
+git clone https://github.com/immortalwrt/packages package/new/immortalwrt-packages
+mv package/new/immortalwrt-packages/utils/docker-compose package/new/docker-compose
+rm -rf package/new/immortalwrt-packages
 
 ## alist编译环境
 rm -rf feeds/packages/lang/golang
