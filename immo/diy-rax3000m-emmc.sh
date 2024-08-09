@@ -41,12 +41,10 @@ git clone --depth 1 https://github.com/chenmozhijin/luci-app-socat package/new/c
 mv -n package/new/chenmozhijin-socat/luci-app-socat package/new/
 rm -rf package/new/chenmozhijin-socat
 
-## 构建dockerman && docker-compose
-rm -rf feeds/luci/collections/luci-lib-docker
+## docker-compose
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/immortalwrt/luci package/new/luci
 mv package/new/luci/applications/luci-app-dockerman package/new/
-mv package/new/luci/collections/luci-lib-docker package/new/
 rm -rf package/new/luci
 
 rm -rf feeds/packages/utils/docker
@@ -175,8 +173,6 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/new/op
 mv -n package/new/openwrt-passwall/luci-app-passwall package/new/
 rm -rf package/new/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/new/passwall
-
-git clone https://github.com/kenzok8/small package/new/small
 
 ## Add luci-app-ramfree
 mv package/new/openwrt-packages/luci-app-ramfree package/new/luci-app-ramfree
