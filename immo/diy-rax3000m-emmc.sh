@@ -108,9 +108,6 @@ cp -rf $GITHUB_WORKSPACE/patches/AdGuardHome/links.txt package/new/luci-app-adgu
 # rm -rf package/new/luci-app-adguardhome/Makefile
 # cp -rf $GITHUB_WORKSPACE/patches/AdGuardHome/Makefile package/new/luci-app-adguardhome/Makefile
 
-## Add luci-app-wireguard
-mv package/new/openwrt-packages/luci-app-wireguard package/new/luci-app-wireguard
-
 ## Add luci-app-smartdns
 # rm -rf feeds/packages/net/smartdns
 # mv package/new/openwrt-packages/smartdns package/new/smartdns
@@ -158,9 +155,6 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/new/op
 mv -n package/new/openwrt-passwall/luci-app-passwall package/new/
 rm -rf package/new/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/new/passwall
-
-## Add luci-app-ramfree
-mv package/new/openwrt-packages/luci-app-ramfree package/new/luci-app-ramfree
 
 ## openclash
 rm -rf feeds/luci/applications/luci-app-openclash
