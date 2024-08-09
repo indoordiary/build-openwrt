@@ -41,6 +41,22 @@ git clone --depth 1 https://github.com/chenmozhijin/luci-app-socat package/new/c
 mv -n package/new/chenmozhijin-socat/luci-app-socat package/new/
 rm -rf package/new/chenmozhijin-socat
 
+## 构建dockerman && docker-compose
+rm -rf feeds/luci/collections/luci-lib-docker
+git clone https://github.com/immortalwrt/luci package/new/luci
+mv package/new/luci/applications/luci-app-dockerman package/new/luci-app-dockerman
+mv package/new/luci/collections/luci-lib-docker package/new/luci-lib-docker
+rm -rf package/new/luci
+
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
+rm -rf feeds/packages/utils/docker-compose
+git clone https://github.com/immortalwrt/packages package/new/immortalwrt-packages
+mv package/new/immortalwrt-packages/utils/docker package/new/docker
+mv package/new/immortalwrt-packages/utils/dockerd package/new/dockerd
+mv package/new/immortalwrt-packages/utils/docker-compose package/new/docker-compose
+rm -rf package/new/immortalwrt-packages
+
 ## Add luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/packages/net/ddns-go
