@@ -43,6 +43,7 @@ rm -rf package/new/chenmozhijin-socat
 
 ## 构建dockerman && docker-compose
 rm -rf feeds/luci/collections/luci-lib-docker
+rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/immortalwrt/luci package/new/luci
 mv package/new/luci/applications/luci-app-dockerman package/new/luci-app-dockerman
 mv package/new/luci/collections/luci-lib-docker package/new/luci-lib-docker
