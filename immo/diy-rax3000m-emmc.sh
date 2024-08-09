@@ -176,6 +176,8 @@ mv -n package/new/openwrt-passwall/luci-app-passwall package/new/
 rm -rf package/new/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/new/passwall
 
+git clone https://github.com/kenzok8/small package/new/small
+
 ## Add luci-app-ramfree
 mv package/new/openwrt-packages/luci-app-ramfree package/new/luci-app-ramfree
 
