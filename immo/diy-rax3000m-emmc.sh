@@ -59,11 +59,6 @@ git clone https://github.com/kiddin9/openwrt-packages package/new/openwrt-packag
 
 ########## 添加包
 
-rm -rf feeds/packages/utils/docker-compose
-git clone https://github.com/immortalwrt/packages package/new/immortalwrt-packages
-mv package/new/immortalwrt-packages/utils/docker-compose package/new/docker-compose
-rm -rf package/new/immortalwrt-packages
-
 ## alist编译环境
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
