@@ -17,10 +17,10 @@ mkdir -p package/new
 # cp -rf $GITHUB_WORKSPACE/patches/default-settings package/new/default-settings
 
 ## 下载主题luci-theme-argon
-# rm -rf feeds/luci/themes/luci-theme-argon
-# rm -rf feeds/luci/applications/luci-app-argon-config
-# git clone https://github.com/jerrykuku/luci-theme-argon.git package/new/luci-theme-argon
-# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/new/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/applications/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-theme-argon.git -b 18.06 package/new/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git -b v0.9 package/new/luci-app-argon-config
 ## 调整 LuCI 依赖，去除 luci-app-opkg，替换主题 bootstrap 为 argon
 # sed -i '/+luci-light/d;s/+luci-app-opkg/+luci-light/' ./feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/' ./feeds/luci/collections/luci-light/Makefile
@@ -29,6 +29,7 @@ rm -rf feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 ## Add luci-app-wechatpush
+# rm -rf feeds/luci/applications/luci-app-wechatpush
 # git clone --depth=1 https://github.com/tty228/luci-app-wechatpush package/new/luci-app-wechatpush
 
 ## Add luci-app-socat
